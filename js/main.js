@@ -94,6 +94,18 @@
     $("#heroLinks").innerHTML = contactLinks(o);
     $("#contactLinks").innerHTML = contactLinks(o);
 
+    $("#skillsTable").innerHTML =
+      `<div class="skill-row skill-head mono" role="row"><span role="columnheader">Category</span><span role="columnheader">Tool</span><span role="columnheader">Experience</span></div>` +
+      (data.skills || [])
+        .map(
+          (s) => `<div class="skill-row" role="row">
+            <span class="skill-cat" role="cell">${esc(s.category)}</span>
+            <span class="skill-tool" role="cell">${esc(s.tool)}</span>
+            <span class="skill-years mono" role="cell">${esc(s.years)}</span>
+          </div>`
+        )
+        .join("");
+
     const cats = ["All", ...new Set(data.projects.map((p) => p.category))];
     let active = "All";
 

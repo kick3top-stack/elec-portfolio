@@ -24,29 +24,38 @@
 
 window.PORTFOLIO = {
   owner: {
-    name: "Your Name",
+    name: "Dennis Foley",
     title: "Electronics & Software Engineer",
     headline: "Hardware, mechanics and software, designed end to end.",
     intro:
       "I design circuit boards, model mechanical parts, simulate systems, and build interactive software. Here are some of the things I've made.",
-    email: "you@example.com",
-    github: "https://github.com/your-username",
+    email: "dfoley2323@gmail.com",
+    github: "https://github.com/kick3top-stack",
     linkedin: "", // leave empty to hide
     cv: "", // e.g. "assets/cv.pdf"
   },
+
+  // Skills table. Leave `years` empty ("") to show the tool without a duration.
+  skills: [
+    { category: "Game Development", tool: "Cocos2d-x", years: "5+ years" },
+    { category: "3D Development", tool: "Three.js Editor", years: "5+ years" },
+    { category: "Scientific Computing", tool: "MATLAB", years: "" },
+    { category: "CFD Simulation", tool: "SolidWorks Flow Simulation", years: "1–2 years" },
+    { category: "Structural FEA", tool: "SolidWorks Simulation", years: "" },
+  ],
 
   projects: [
     {
       id: "fishing-game",
       title: "Fishing Game",
       category: "Game Dev",
-      tools: ["Cocos2d", "JavaScript", "Sprite Animation"],
+      tools: ["Cocos2d-x", "Sprite Animation", "Game Physics"],
       year: "",
       cover: "", // e.g. "assets/projects/fishing-game/cover.png"
-      summary: "A 2D arcade fishing game built with the Cocos2d engine.",
+      summary: "A 2D arcade fishing game built with the Cocos2d-x engine.",
       description: [
         "The player casts a line, waits for fish to swim past, and reels them in before the line breaks. Different fish have different speeds, sizes and point values.",
-        "I built the game loop, the hook physics, sprite animations for the fish and water, and the scoring and level system in Cocos2d.",
+        "I built the game loop, the hook physics, sprite animations for the fish and water, and the scoring and level system in Cocos2d-x.",
       ],
       highlights: [
         "Scene management: menu, gameplay and game-over screens",
@@ -66,7 +75,7 @@ window.PORTFOLIO = {
       id: "aircraft-3d",
       title: "3D Aircraft Viewer",
       category: "3D / Web",
-      tools: ["Three.js", "WebGL", "JavaScript"],
+      tools: ["Three.js", "Three.js Editor", "WebGL"],
       year: "",
       cover: "",
       summary: "An interactive 3D aircraft you can fly or orbit around in the browser.",
@@ -112,10 +121,10 @@ window.PORTFOLIO = {
       id: "solidworks",
       title: "SolidWorks Mechanical Design",
       category: "Mechanical / CAD",
-      tools: ["SolidWorks", "3D Modeling", "Technical Drawings"],
+      tools: ["SolidWorks", "SolidWorks Simulation (FEA)", "SolidWorks Flow Simulation (CFD)"],
       year: "",
       cover: "",
-      summary: "3D parts and assemblies modeled in SolidWorks, with engineering drawings.",
+      summary: "3D parts and assemblies modeled in SolidWorks, tested with FEA and CFD simulation.",
       description: [
         "I modeled the individual parts in SolidWorks, combined them into an assembly with proper mates, and checked for interference and fit.",
         "From the model I produced dimensioned 2D drawings ready for manufacturing or 3D printing.",
@@ -123,7 +132,8 @@ window.PORTFOLIO = {
       highlights: [
         "Part modeling and multi-part assembly",
         "Dimensioned 2D engineering drawings",
-        "Exploded view and renders",
+        "Structural FEA in SolidWorks Simulation",
+        "Airflow / fluid CFD in SolidWorks Flow Simulation",
       ],
       media: [
         // Export your part as .glb (or STL → GLB) to make it spin in the browser:
