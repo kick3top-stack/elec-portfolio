@@ -3,23 +3,20 @@
  *  PORTFOLIO CONTENT — this is the only file you need to edit.
  * ─────────────────────────────────────────────────────────────
  *
- *  1. Put your files in  assets/projects/<project-id>/
- *     (screenshots, videos, PDFs, .glb 3D models, zip downloads...)
+ *  1. Put your files in  assets/images/  (or any folder under assets/)
  *  2. Reference them below in `cover` and `media`.
  *  3. Refresh the page. No build step.
  *
  *  Media types you can use in `media: [...]`:
- *    { type: "image",   src: "assets/projects/x/shot.png", caption: "..." }
- *    { type: "video",   src: "assets/projects/x/demo.mp4", caption: "..." }
- *    { type: "youtube", id:  "dQw4w9WgXcQ",                caption: "..." }
- *    { type: "model",   src: "assets/projects/x/part.glb",  caption: "..." }  // interactive 3D (export STL→GLB)
- *    { type: "pdf",     src: "assets/projects/x/report.pdf", caption: "..." }
- *    { type: "embed",   src: "assets/projects/x/web-build/index.html", caption: "..." } // playable game / live demo
+ *    { type: "image",   src: "assets/images/shot.jpg",   caption: "..." }
+ *    { type: "video",   src: "assets/images/demo.mp4",   caption: "..." }
+ *    { type: "youtube", id:  "dQw4w9WgXcQ",              caption: "..." }
+ *    { type: "model",   src: "assets/images/part.glb",   caption: "..." }  // interactive 3D (export STL→GLB)
+ *    { type: "pdf",     src: "assets/images/report.pdf", caption: "..." }
+ *    { type: "embed",   src: "assets/game/index.html",   caption: "..." }  // playable game / live demo
  *
  *  Links (`links: [...]`) show as buttons: GitHub, live demo, downloads.
- *
- *  The explanations below are DRAFTS written from the project titles.
- *  Replace them with what you actually built.
+ *  `coverFit: "contain"` shows the whole cover image (good for plots) instead of cropping it.
  */
 
 window.PORTFOLIO = {
@@ -28,7 +25,7 @@ window.PORTFOLIO = {
     title: "Electronics & Software Engineer",
     headline: "Hardware, mechanics and software, designed end to end.",
     intro:
-      "I design circuit boards, model mechanical parts, simulate systems, and build interactive software. Here are some of the things I've made.",
+      "I design RF circuit boards, simulate antennas, structures and fluid flow, and build games and 3D software. Here are some of the things I've made.",
     email: "dfoley2323@gmail.com",
     github: "", // leave empty to hide
     linkedin: "", // leave empty to hide
@@ -54,12 +51,8 @@ window.PORTFOLIO = {
         "Coin scoring, cannon-level controls and HUD",
         "Animated sprites for fish, coral and effects",
       ],
-      media: [
-        // { type: "embed", src: "assets/projects/fishing-game/web-mobile/index.html", caption: "Play it here" },
-      ],
-      links: [
-        // { label: "Source code", url: "https://github.com/..." },
-      ],
+      media: [],
+      links: [],
     },
 
     {
@@ -85,70 +78,90 @@ window.PORTFOLIO = {
     },
 
     {
-      id: "pcb-design",
-      title: "PCB Design",
+      id: "rf-pcb",
+      title: "RF PCB Design",
       category: "Electronics",
-      tools: ["Altium Designer", "Multi-layer PCB Layout", "High-speed Routing"],
+      tools: ["Altium Designer", "Keysight ADS", "AD9361 SDR", "Smith Chart"],
       year: "",
       cover: "assets/images/PCB-board.jpg",
-      summary: "A multi-layer processor board based on the Rockchip RV1126, laid out in Altium Designer.",
+      summary: "An 8-layer RF board with antenna interfaces, LNAs, filters and an AD9361 software-defined radio.",
       description: [
-        "This module is built around the Rockchip RV1126 vision processor. The layout uses several copper layers to fan out the processor's dense BGA package, route memory and high-speed signals, and carry power on wide copper pours.",
-        "I placed the components, routed the board, and set up the power planes, length-matched traces and the four mounting holes in Altium Designer.",
+        "I designed an 8-layer RF PCB that takes signals from the antenna interfaces through low-noise amplifiers (LNAs) and filters into an AD9361 software-defined radio. RF traces are impedance-matched so the signal reaches the radio with as little loss and reflection as possible.",
+        "Before layout, I simulated the matching networks and signal paths in ADS. I checked impedance on Smith Charts and tuned the RF front end until it met its targets.",
       ],
       highlights: [
-        "Multi-layer stack-up with dedicated power and ground pours",
-        "BGA fan-out and dense via routing around the processor",
-        "Length-matched (serpentine) traces for high-speed signals",
-        "Mounting holes and board outline for the enclosure",
+        "8-layer stack-up with dedicated RF, power and ground layers",
+        "Antenna interfaces, LNAs and filters in the RF front end",
+        "Impedance-matched RF traces",
+        "AD9361 SDR circuitry",
+        "Matching networks simulated and optimized in ADS",
       ],
       media: [{ type: "image", src: "assets/images/PCB-altium.jpg", caption: "Board layout in Altium Designer" }],
       links: [],
     },
 
     {
-      id: "solidworks",
-      title: "SolidWorks Mechanical Design",
-      category: "Mechanical / CAD",
-      tools: ["SolidWorks", "SolidWorks Simulation (FEA)", "SolidWorks Flow Simulation (CFD)"],
+      id: "fea",
+      title: "Mechanical Design & Structural FEA",
+      category: "Mechanical",
+      tools: ["3D CAD", "Onshape", "CAEplex (FEA)"],
       year: "",
-      cover: "",
-      summary: "3D parts and assemblies modeled in SolidWorks, tested with FEA and CFD simulation.",
+      cover: "assets/images/fea.jpg",
+      summary: "3D mechanical parts checked with finite element analysis to see where they bend and how much stress they carry.",
       description: [
-        "I modeled the individual parts in SolidWorks, combined them into an assembly with proper mates, and checked for interference and fit.",
-        "From the model I produced dimensioned 2D drawings ready for manufacturing or 3D printing.",
+        "I model antenna structures and mechanical assemblies in 3D CAD, check mounting constraints and structural stability, and refine the designs so they hold up reliably in use.",
+        "For this component I ran a finite element analysis with Onshape and CAEplex. Under load, the curved neck carries the highest Von Mises stress, at 17 MPa (red), while the base stays almost unstressed (blue). The maximum displacement is only 0.01997 mm.",
       ],
       highlights: [
-        "Part modeling and multi-part assembly",
-        "Dimensioned 2D engineering drawings",
-        "Structural FEA in SolidWorks Simulation",
-        "Airflow / fluid CFD in SolidWorks Flow Simulation",
+        "3D modeling of antenna structures and assemblies",
+        "Mounting constraints and structural stability checks",
+        "FEA: mesh, loads and boundary conditions",
+        "Max Von Mises stress 17 MPa, max displacement 0.01997 mm",
       ],
-      media: [
-        // Export your part as .glb (or STL → GLB) to make it spin in the browser:
-        // { type: "model", src: "assets/projects/solidworks/assembly.glb", caption: "Drag to rotate" },
-        // { type: "pdf", src: "assets/projects/solidworks/drawing.pdf", caption: "Engineering drawing" },
+      media: [{ type: "image", src: "assets/images/fea-full.jpg", caption: "Stress results in Onshape with CAEplex" }],
+      links: [],
+    },
+
+    {
+      id: "cfd",
+      title: "CFD Flow Simulation",
+      category: "Simulation",
+      tools: ["OpenFOAM", "icoFoam", "ParaView / modelbuilder"],
+      year: "",
+      cover: "assets/images/cfd.jpg",
+      summary: "Simulating how air flows around a 3D body and where pressure builds up, using OpenFOAM.",
+      description: [
+        "I set up a fluid-flow simulation in OpenFOAM with the icoFoam solver. I defined the inlet flow velocity, outlet pressure and fluid viscosity, then meshed the domain around a 3D body.",
+        "The result shows how pressure is distributed around the body. Pressure is highest on the front face, where the flow hits it head-on (red), and drops along the top and sides as the flow speeds up around it (blue).",
       ],
+      highlights: [
+        "Boundary conditions: inlet velocity, outlet pressure, viscosity",
+        "Block mesh and snappyHexMesh refinement around the body",
+        "Transient solve with icoFoam",
+        "Pressure-field post-processing and visualization",
+      ],
+      media: [{ type: "image", src: "assets/images/cfd-full.jpg", caption: "OpenFOAM case setup and pressure results" }],
       links: [],
     },
 
     {
       id: "matlab",
-      title: "Direction-of-Arrival Estimation (MUSIC)",
+      title: "Antenna Array Angle-of-Arrival (MATLAB)",
       category: "Simulation",
-      tools: ["MATLAB", "Array Signal Processing"],
+      tools: ["MATLAB", "Array Signal Processing", "MUSIC Algorithm"],
       year: "",
       cover: "assets/images/matlab.png",
       coverFit: "contain",
-      summary: "Finding where radio signals come from, using the MUSIC algorithm in MATLAB.",
+      summary: "Finding which direction radio signals come from, using an 8-element antenna array simulated in MATLAB.",
       description: [
-        "When several signals reach an array of antennas, each one arrives at a slightly different time at each antenna. The MUSIC algorithm uses those differences to estimate the angle each signal came from.",
-        "I simulated signals arriving at a sensor array in MATLAB and computed the MUSIC spectrum. The plot shows three sharp peaks, at about −12°, 0° and 85°, one for each source.",
+        "When a signal reaches an array of antennas, it arrives at each element at a slightly different time, which shows up as a phase difference. Measuring those differences tells you the angle the signal came from.",
+        "I built MATLAB simulations of an 8-element antenna array, analyzed the phase differences and signal correlation between elements, and verified angle-of-arrival estimation algorithms. The MUSIC spectrum here shows three sharp peaks, at about −12°, 0° and 85°, one for each source.",
       ],
       highlights: [
-        "Simulated sensor array and incoming signals",
-        "MUSIC algorithm implemented in MATLAB",
-        "Spectrum plot with clearly separated peaks for each source",
+        "8-element antenna array model",
+        "Phase-difference and signal-correlation analysis",
+        "Angle-of-arrival estimation with the MUSIC algorithm",
+        "Clearly separated peaks for multiple sources",
       ],
       media: [],
       links: [],
@@ -156,17 +169,22 @@ window.PORTFOLIO = {
 
     {
       id: "embedded",
-      title: "Embedded Firmware",
+      title: "Wire Rope Sensor Unit",
       category: "Electronics",
-      tools: ["C / C++", "Arduino / STM32", "Sensors"],
+      tools: ["Embedded C / C++", "Sensors", "Field Hardware"],
       year: "",
-      cover: "",
-      summary: "Microcontroller firmware that reads sensors and controls hardware.",
+      cover: "assets/images/embedded.jpg",
+      summary: "A rugged embedded sensor unit mounted on steel wire ropes in an industrial installation.",
       description: [
-        "Firmware for a microcontroller that reads sensor data, processes it, and drives outputs such as motors, LEDs or a display.",
-        "Delete this project if you don't need it, or duplicate it for more projects.",
+        "This sensor unit clamps onto running steel wire ropes, with a guide roller that keeps it aligned with the rope. It is installed in an industrial hoisting setup.",
+        "The embedded electronics read the sensors, process the data and send it over a cable to the control side.",
       ],
-      highlights: ["Sensor interfacing (I2C / SPI / ADC)", "Real-time control loop", "Serial debugging"],
+      highlights: [
+        "Sensor electronics in a rugged metal enclosure",
+        "Guide-roller mounting on the moving rope",
+        "Embedded firmware for data acquisition",
+        "Tested in a real industrial installation",
+      ],
       media: [],
       links: [],
     },
