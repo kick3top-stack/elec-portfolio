@@ -1,7 +1,8 @@
 /* Rendering for the portfolio. Content lives in js/projects.js. */
 (function () {
   const data = window.PORTFOLIO;
-  const $ = (sel) => document.querySelector(sel);
+  // Falls back to a detached element so a missing section never stops the rest of the page rendering.
+  const $ = (sel) => document.querySelector(sel) || document.createElement("div");
 
   const esc = (s) =>
     String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);

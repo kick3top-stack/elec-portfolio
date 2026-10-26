@@ -29,6 +29,11 @@ SolidWorks can't export `.glb` directly. Export STL or STEP, then convert it wit
 
 Keep videos under ~20 MB. Use YouTube for longer ones.
 
+## After editing CSS or JS
+
+Bump the `?v=...` number on the `css/style.css`, `js/projects.js` and `js/main.js` links in both
+`index.html` and `project.html`. Otherwise visitors' browsers may keep old copies and mix them with new ones.
+
 ## Publishing (GitHub Pages)
 
 1. Push this folder to a GitHub repo.
