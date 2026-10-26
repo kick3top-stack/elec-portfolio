@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio</title>
+    <meta name="description" content="Engineering portfolio: electronics, CAD, simulation and software projects." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="topbar">
+        <a class="brand" href="index.html" id="brand"></a>
+        <nav>
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <p class="eyebrow mono" id="heroTitle"></p>
+          <h1 id="heroIntro"></h1>
+          <p class="lede" id="heroLede"></p>
+          <div class="links" id="heroLinks"></div>
+        </section>
+
+        <section id="work">
+          <div class="section-head">
+            <h2>Selected work</h2>
+            <div class="filters" id="filters" role="tablist"></div>
+          </div>
+          <div class="grid" id="grid"></div>
+        </section>
+
+        <section id="contact" class="contact">
+          <div class="section-head"><h2>Contact</h2></div>
+          <h2 class="big">Let's build something.</h2>
+          <p>Open to projects, roles and collaboration.</p>
+          <div class="links" id="contactLinks"></div>
+        </section>
+      </main>
+
+      <footer class="footer mono" id="footer"></footer>
+    </div>
+
+    <script src="js/projects.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      Portfolio.renderHome();
+    </script>
+  </body>
+</html>
