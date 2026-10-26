@@ -35,15 +35,6 @@ window.PORTFOLIO = {
     cv: "", // e.g. "assets/cv.pdf"
   },
 
-  // Skills table. Leave `years` empty ("") to show the tool without a duration.
-  skills: [
-    { category: "Game Development", tool: "Cocos2d-x", years: "5+ years" },
-    { category: "3D Development", tool: "Three.js Editor", years: "5+ years" },
-    { category: "Scientific Computing", tool: "MATLAB", years: "" },
-    { category: "CFD Simulation", tool: "SolidWorks Flow Simulation", years: "1–2 years" },
-    { category: "Structural FEA", tool: "SolidWorks Simulation", years: "" },
-  ],
-
   projects: [
     {
       id: "fishing-game",
