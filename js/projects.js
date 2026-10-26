@@ -27,7 +27,7 @@ window.PORTFOLIO = {
     intro:
       "I design RF circuit boards, simulate antennas, structures and fluid flow, and build games and 3D software. Here are some of the things I've made.",
     email: "dfoley2323@gmail.com",
-    github: "", // leave empty to hide
+    github: "https://github.com/pottedmeat7",
     linkedin: "", // leave empty to hide
     cv: "", // e.g. "assets/cv.pdf"
   },
