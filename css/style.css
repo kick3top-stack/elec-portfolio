@@ -202,6 +202,12 @@ section {
   object-fit: cover;
   transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), color 0.3s;
 }
+.thumb img.contain,
+.detail-cover img.contain {
+  object-fit: contain;
+  background: #ffffff;
+  padding: 4%;
+}
 .card:hover .thumb img,
 .card:hover .thumb svg {
   transform: scale(1.025);

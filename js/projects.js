@@ -30,7 +30,7 @@ window.PORTFOLIO = {
     intro:
       "I design circuit boards, model mechanical parts, simulate systems, and build interactive software. Here are some of the things I've made.",
     email: "dfoley2323@gmail.com",
-    github: "https://github.com/kick3top-stack",
+    github: "", // leave empty to hide
     linkedin: "", // leave empty to hide
     cv: "", // e.g. "assets/cv.pdf"
   },
@@ -51,19 +51,19 @@ window.PORTFOLIO = {
       category: "Game Dev",
       tools: ["Cocos2d-x", "Sprite Animation", "Game Physics"],
       year: "",
-      cover: "", // e.g. "assets/projects/fishing-game/cover.png"
-      summary: "A 2D arcade fishing game built with the Cocos2d-x engine.",
+      cover: "assets/images/fishing.jpg",
+      summary: "An underwater arcade shooting game built with the Cocos2d-x engine.",
       description: [
-        "The player casts a line, waits for fish to swim past, and reels them in before the line breaks. Different fish have different speeds, sizes and point values.",
-        "I built the game loop, the hook physics, sprite animations for the fish and water, and the scoring and level system in Cocos2d-x.",
+        "The player controls a cannon at the bottom of the screen and fires at the fish swimming across a coral reef. Each catch pays out coins, and bigger creatures such as the sea turtle and hammerhead shark are worth more.",
+        "I built the game in Cocos2d-x: the fish movement paths, cannon aiming and firing, hit detection, the coin counter and cannon-level controls, and the animated reef scene. It runs at a steady 60 FPS.",
       ],
       highlights: [
-        "Scene management: menu, gameplay and game-over screens",
-        "Collision detection between the hook and moving fish",
-        "Sprite-sheet animations and sound effects",
+        "Fish spawning and movement paths across the screen",
+        "Cannon aiming, bullets and hit detection",
+        "Coin scoring, cannon-level controls and HUD",
+        "Animated sprites for fish, coral and effects",
       ],
       media: [
-        // { type: "image", src: "assets/projects/fishing-game/gameplay.png", caption: "Gameplay" },
         // { type: "embed", src: "assets/projects/fishing-game/web-mobile/index.html", caption: "Play it here" },
       ],
       links: [
@@ -73,20 +73,21 @@ window.PORTFOLIO = {
 
     {
       id: "aircraft-3d",
-      title: "3D Aircraft Viewer",
+      title: "3D Flight Game",
       category: "3D / Web",
       tools: ["Three.js", "Three.js Editor", "WebGL"],
       year: "",
-      cover: "",
-      summary: "An interactive 3D aircraft you can fly or orbit around in the browser.",
+      cover: "assets/images/aircraft.jpg",
+      summary: "A browser-based 3D flight game where you pilot a fighter jet over an open world.",
       description: [
-        "A Three.js scene that loads a 3D aircraft model and renders it in real time with lighting, shadows and a sky environment.",
-        "The user can rotate the camera around the plane and control pitch, roll and yaw with the keyboard to see how each control surface affects flight.",
+        "Built with Three.js, the game puts the player behind a fighter jet flying over hills, forests, houses, towers and a castle, with a cloud-filled sky.",
+        "A heads-up display shows live speed, altitude and the number of connected players, and the game supports multiple players in the same world. It runs in any modern browser with no install.",
       ],
       highlights: [
-        "GLTF model loading and PBR materials",
-        "Camera controls and keyboard flight input",
-        "Runs in any modern browser, no install",
+        "Third-person flight camera and keyboard controls",
+        "Open world with terrain, trees, buildings and clouds",
+        "HUD with speed, altitude and player count",
+        "Multiplayer: several pilots share one world",
       ],
       media: [],
       links: [],
@@ -96,24 +97,21 @@ window.PORTFOLIO = {
       id: "pcb-design",
       title: "PCB Design",
       category: "Electronics",
-      tools: ["KiCad / Altium", "Schematic Capture", "PCB Layout"],
+      tools: ["Altium Designer", "Multi-layer PCB Layout", "High-speed Routing"],
       year: "",
-      cover: "",
-      summary: "A custom printed circuit board, taken from schematic to manufactured board.",
+      cover: "assets/images/PCB-board.jpg",
+      summary: "A multi-layer processor board based on the Rockchip RV1126, laid out in Altium Designer.",
       description: [
-        "I drew the schematic, chose the components, and laid out the board, routing power and signal traces and placing the ground planes.",
-        "The design was checked with DRC, exported as Gerber files, manufactured, then assembled and tested.",
+        "This module is built around the Rockchip RV1126 vision processor. The layout uses several copper layers to fan out the processor's dense BGA package, route memory and high-speed signals, and carry power on wide copper pours.",
+        "I placed the components, routed the board, and set up the power planes, length-matched traces and the four mounting holes in Altium Designer.",
       ],
       highlights: [
-        "Schematic and component selection",
-        "Two-layer layout with ground plane",
-        "Gerber export, assembly and bring-up testing",
+        "Multi-layer stack-up with dedicated power and ground pours",
+        "BGA fan-out and dense via routing around the processor",
+        "Length-matched (serpentine) traces for high-speed signals",
+        "Mounting holes and board outline for the enclosure",
       ],
-      media: [
-        // { type: "image", src: "assets/projects/pcb-design/schematic.png", caption: "Schematic" },
-        // { type: "image", src: "assets/projects/pcb-design/layout.png", caption: "PCB layout" },
-        // { type: "image", src: "assets/projects/pcb-design/assembled.jpg", caption: "Assembled board" },
-      ],
+      media: [{ type: "image", src: "assets/images/PCB-altium.jpg", caption: "Board layout in Altium Designer" }],
       links: [],
     },
 
@@ -145,20 +143,21 @@ window.PORTFOLIO = {
 
     {
       id: "matlab",
-      title: "MATLAB Simulation & Analysis",
+      title: "Direction-of-Arrival Estimation (MUSIC)",
       category: "Simulation",
-      tools: ["MATLAB", "Simulink", "Signal Processing"],
+      tools: ["MATLAB", "Array Signal Processing"],
       year: "",
-      cover: "",
-      summary: "Modeling and simulating an engineering system in MATLAB.",
+      cover: "assets/images/matlab.png",
+      coverFit: "contain",
+      summary: "Finding where radio signals come from, using the MUSIC algorithm in MATLAB.",
       description: [
-        "I wrote MATLAB scripts (and a Simulink model) to simulate how the system behaves over time, then plotted the results.",
-        "Comparing the simulation with the expected or measured behavior helped me tune the design before building anything.",
+        "When several signals reach an array of antennas, each one arrives at a slightly different time at each antenna. The MUSIC algorithm uses those differences to estimate the angle each signal came from.",
+        "I simulated signals arriving at a sensor array in MATLAB and computed the MUSIC spectrum. The plot shows three sharp peaks, at about −12°, 0° and 85°, one for each source.",
       ],
       highlights: [
-        "Mathematical model of the system",
-        "Simulation and result plotting",
-        "Parameter tuning based on results",
+        "Simulated sensor array and incoming signals",
+        "MUSIC algorithm implemented in MATLAB",
+        "Spectrum plot with clearly separated peaks for each source",
       ],
       media: [],
       links: [],

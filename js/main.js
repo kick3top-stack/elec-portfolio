@@ -64,7 +64,10 @@
     </svg>`;
   }
 
-  const coverHtml = (p) => (p.cover ? `<img src="${esc(p.cover)}" alt="${esc(p.title)}" loading="lazy">` : placeholder(p.category));
+  const coverHtml = (p) =>
+    p.cover
+      ? `<img src="${esc(p.cover)}" alt="${esc(p.title)}" loading="lazy"${p.coverFit === "contain" ? ' class="contain"' : ""}>`
+      : placeholder(p.category);
 
   // ── Shared chrome ───────────────────────────────────────
   function contactLinks(o) {
@@ -189,9 +192,11 @@
     const next = data.projects[(i + 1) % data.projects.length];
 
     const gallery = p.media.length
-      ? `<div class="gallery">${p.media.map(mediaHtml).join("")}</div>`
-      : `<p class="empty">No media yet. Add files to <code>assets/projects/${esc(p.id)}/</code>
-         and list them under <code>media</code> in <code>js/projects.js</code>.</p>`;
+      ? `<section>
+          <div class="section-head"><h2>Gallery</h2></div>
+          <div class="gallery">${p.media.map(mediaHtml).join("")}</div>
+        </section>`
+      : "";
 
     root.innerHTML = `
       <div class="detail-head">
@@ -213,10 +218,7 @@
           ${p.highlights?.length ? `<h2>What I did</h2><ul>${p.highlights.map((h) => `<li>${esc(h)}</li>`).join("")}</ul>` : ""}
         </div>
       </div>
-      <section>
-        <div class="section-head"><h2>Gallery</h2></div>
-        ${gallery}
-      </section>
+      ${gallery}
       <section>
         <div class="section-head"><h2>Next project</h2></div>
         <a class="card" href="project.html?p=${encodeURIComponent(next.id)}" style="max-width:520px">

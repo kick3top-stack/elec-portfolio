@@ -1,3 +1,9 @@
 Thumbs.db
 .DS_Store
 node_modules/
+
+# Not published: these screenshots show Onshape/CAEplex and OpenFOAM, not SolidWorks
+assets/images/solidworks1.jpg
+assets/images/solidworksCFA.jpg
+# Original PNG; the site uses the JPG versions
+assets/images/PCB.png
